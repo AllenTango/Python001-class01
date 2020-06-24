@@ -35,6 +35,6 @@ class MaoyanSpider(scrapy.Spider):
         #     '//*[@id="app"]/div/div[2]/div[2]/div[2]/div[1]/div[1]/h1/text()').extract_first()
 
         yield {'title': Selector(response=response).xpath('//div[@class="movie-cn-name"]/h1/text()').extract_first(),
-               'actors': Selector(response=response).xpath('//span[@class="movie-cat"]/text()').extract_first(),
+               'types': Selector(response=response).xpath('//span[@class="movie-cat"]/text()').extract_first(),
                'show_time': Selector(response=response).xpath('//div[@class="movie-show-time"]/span/text()').extract_first(),
                'content': Selector(response=response).xpath('//*[@id="brief-introduction-content"]/text()').extract_first()}

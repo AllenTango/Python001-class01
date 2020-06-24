@@ -12,7 +12,7 @@ class MagicSpidersItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     title = scrapy.Field()
-    actors = scrapy.Field()
+    types = scrapy.Field()
     show_time = scrapy.Field()
     link = scrapy.Field()
     content = scrapy.Field()

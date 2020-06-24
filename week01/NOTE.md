@@ -13,3 +13,9 @@
 ## 作业一：
 
 版本1[`m_maoyan_movie.py`]: 偷个懒，使用猫眼电影手机版网页爬取[因为其页面简单，一次加载也刚好是10个]
+
+## 作业二：
+  
+继续爬取对应手机页面，
+- 运行爬虫命令 `scrapy crawl maoyan`
+- 保存 cvs 可选命令行运行保存 `scrapy crawl maoyan -o maoyan_movie.csv`
