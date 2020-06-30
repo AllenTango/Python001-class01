@@ -1,1 +1,17 @@
-学习笔记
+# 学习笔记
+
+## 作业一：
+
+- 为 Scrapy 增加代理 IP 功能
+- 将保存至 csv 文件的功能修改为保存到 MySQL，并在下载部分增加异常捕获和处理机制。
+
+备注：代理 IP 可以使用 GitHub 提供的免费 IP 库
+
+## 作业二：
+
+使用 requests 或 Selenium 模拟登录[石墨文档](https://shimo.im)
+
+PS: 之前一直是微信登录石墨文档的，因为要模拟密码登录石墨文档，跑去设置初始密码，但是设置密码不成功😭，放弃！继续用微信登录。
+
+使用 Selenium 模拟点击跳转到微信授权页，用手机微信扫码登录，因为 chromedriver 不会保存 Cookies 每次浏览石墨文档都需要扫码很麻烦，所以采取了初次登录时获取授权保存 Cookies，再次浏览时携带 Cookies 浏览，减少微信授权操作
+参考文档 👉 [selenium+requests进行cookies保存读取操作](https://www.jianshu.com/p/c443be410987)

@@ -2,3 +2,5 @@
 *.pyc
 .DS_Store
 .vscode/settings.json
+week02/config.py
+week02/shimo_login/cookies.txt
