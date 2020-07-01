@@ -43,5 +43,5 @@ def login_shimo():
         print(e)
         write_shimo_cookies()
 
-
-login_shimo()
+if __name__ == "__main__":
+    login_shimo()
