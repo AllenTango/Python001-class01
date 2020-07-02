@@ -1,11 +1,13 @@
 # 学习笔记
 
+解决week01 作业问题
+
 ## 作业一：
 
 - 为 Scrapy 增加代理 IP 功能
 - 将保存至 csv 文件的功能修改为保存到 MySQL，并在下载部分增加异常捕获和处理机制。
 
-备注：代理 IP 可以使用 GitHub 提供的免费 IP 库
+备注：代理 IP 可以使用 GitHub 提供的[免费 IP 库](https://github.com/jhao104/proxy_pool)
 
 ## 作业二：
 

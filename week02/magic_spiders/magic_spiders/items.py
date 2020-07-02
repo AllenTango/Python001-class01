@@ -14,5 +14,4 @@ class MagicSpidersItem(scrapy.Item):
     title = scrapy.Field()
     types = scrapy.Field()
     show_time = scrapy.Field()
-    link = scrapy.Field()
     content = scrapy.Field()

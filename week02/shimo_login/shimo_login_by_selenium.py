@@ -35,6 +35,7 @@ def read_shimo_cookies():
 
     browser.get("https://shimo.im")
     time.sleep(10)
+    browser.close()
 
 def login_shimo():
     try:
