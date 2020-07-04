@@ -9,6 +9,8 @@
 
 备注：代理 IP 可以使用 GitHub 提供的[免费 IP 库](https://github.com/jhao104/proxy_pool)
 
+补充些 MySQL 知识，[MySQL用户及权限](https://zhuanlan.zhihu.com/p/55798418)
+
 ## 作业二：
 
 使用 requests 或 Selenium 模拟登录[石墨文档](https://shimo.im)

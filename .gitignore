@@ -1,8 +1,9 @@
 
 *.pyc
 .DS_Store
-.vscode/
+*.vscode/*
 week02/config.py
 week02/shimo_login/cookies.txt
 week02/shimo_login/config.py
 week02/magic_spiders/config.py
+week02/magic_spiders/.vscode/*
