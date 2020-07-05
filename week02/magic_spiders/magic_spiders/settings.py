@@ -59,9 +59,9 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 HTTP_PROXY_LIST = [
-   'https://223.242.224.20:9999',
-   'https://23.248.216.170:8080',
-   'https://27.43.191.103:9999'
+   'http://58.220.95.54:9400',
+   'http://137.220.38.141:8080',
+   'http://139.59.1.14:3128'
 ]
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

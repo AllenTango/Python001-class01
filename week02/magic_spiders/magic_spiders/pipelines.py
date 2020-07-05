@@ -37,7 +37,7 @@ class MagicSpidersMySQLPipeline(object):
     
     def process_item(self, item, spider):
         try:
-            self.cursor.execute("INSERT INTO movie(title, types, show_time) VALUES (%s, %s, %s), (item['title'], item['types'], item['show_time'])")
+            self.cursor.execute("INSERT INTO movie(title, types, show_time) VALUES (%s, %s, %s)", (item['title'], item['types'], item['show_time']))
             self.connect.commit()
         except Exception as e:
             print(e)
