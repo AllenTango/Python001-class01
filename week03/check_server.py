@@ -17,6 +17,8 @@ def iplist():
             start_iplist[-1] = str(i)
             addrs_list.append('.'.join(start_iplist))
         return addrs_list
+    else:
+        return [sys.argv[6]]
 
 
 # socket.AF_INET /IPv4 socket; socket.AF_INET6 /IPv6 socket; socket.AF_UNIX /IPC(local socket)
@@ -26,7 +28,7 @@ _lock = threading.Lock()
 
 def check_server(address, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.settimeout(0.5)
+    s.settimeout(5)
     print(f"Attempting to connect to {address} on {port}")
     try:
         s.connect((address, port))
@@ -55,12 +57,8 @@ for i in range(50):
     t.daemon = True
     t.start()
 
-if "ping" in sys.argv:
-    for addr in iplist():
-        for port in range(1,101):
-            q.put((addr, port))
-elif "-w" in sys.argv:
+for addr in iplist():
     for port in range(1,101):
-        q.put((sys.argv[6], port))
+        q.put((addr, port))
 
 q.join()
