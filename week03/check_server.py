@@ -1,5 +1,4 @@
 import sys
-import time
 import socket
 import threading
 from queue import Queue
@@ -8,9 +7,6 @@ from queue import Queue
 pmap.py -n 4 -f ping -ip 192.168.0.1-192.168.0.100
 pmap.py -n 10 -f tcp -ip 192.168.0.1 -w result.json
 '''
-
-# print("-" in sys.argv[6])
-
 
 def iplist():
     if "-" in sys.argv[6]:
@@ -24,12 +20,7 @@ def iplist():
 
 
 # socket.AF_INET /IPv4 socket; socket.AF_INET6 /IPv6 socket; socket.AF_UNIX /IPC(local socket)
-# _socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# import os
-# HOST = "localhost"
-# os.system('ping ' + HOST)
-# PORT = 5555
 _lock = threading.Lock()
 
 
