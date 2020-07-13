@@ -52,7 +52,7 @@ def threader():
         addr, port = q.get()
         if "-w" in sys.argv:
             with open('./' + sys.argv[-1], 'a+') as f:
-                f.write(str(port) + ': "' + check_server(addr, port)+ '",\n')
+                f.write('"' + str(port) + '": "' + check_server(addr, port)+ '",\n')
         check_server(addr, port)
         q.task_done()
 
