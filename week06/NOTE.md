@@ -36,5 +36,58 @@ cd website # 切换到工程目录website
 #
 
 python manage.py startapp douban    # 创建 douban 应用
-python manage.py runserver # 运行 Django
+python manage.py runserver 127.0.0.1:8001 # 本地8001 端口 运行 Django
+```
+
+### settings [Django 配置文件 /manage.py 配置]
+
+```python
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # 项目文件路径配置
+SECRET_KEY # 防止跨站攻击
+DEBUG = True # 开发模式时使用，生产环境应该关闭
+INSTALLED_APP # 🌟 注册应用位置
+TEMPLATES[0].APP_DIRS # 开启应用路径模板查找
+
+DATABASES # 🌟 数据库配置
+```
+
+### URL 调度器 [URLconf]
+
+工程目录下 urls.py 导入应用url 
+
+```python
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('douban.urls')),
+]
+```
+
+#### 应用 urls(douban应用的urls需创建) 需匹配 views 视图
+
+```python
+# 让 URL 支持变量 类型 => [str, int, slug, uuid, path]
+urlpatterns = [
+    path('', views.index, name="index"),
+    path('<int:year>', views.year),    # int 类型约束 [=> views year(year)]
+    path('<int:year>/<str:name>', views.name), # [=> views name(**kwargs)]
+]
+```
+
+## 模块和包
+
+```shell
+package/              ---- 包，存放多个模块的目录
+       module.py      ---- .py 结尾的 Python 程序
+       __init__.py    ---- 包运行的初始化文件，可以是空文件
+```
+
+- 模块和包的导入方式
+
+```python
+import ...
+from ... import ...
+from ... import ... as ...
 ```
