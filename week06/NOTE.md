@@ -69,12 +69,73 @@ urlpatterns = [
 
 ```python
 # 让 URL 支持变量 类型 => [str, int, slug, uuid, path]
+from django.urls import path, re_path, register_converter
+from . import views
+
 urlpatterns = [
     path('', views.index, name="index"),
     path('<int:year>', views.year),    # int 类型约束 [=> views year(year)]
     path('<int:year>/<str:name>', views.name), # [=> views name(**kwargs)]
+    re_path('(?P<year>[0-9]{4}).html', views.myyear, name='urlyear'), # 正则匹配
+    # register_converter 自定义匹配
 ]
 ```
+
+### views 视图
+
+HttpResponse，
+render()、redirect()
+
+### models 数据处理 ORM
+
+```python
+from django.db import models
+
+class Type(models.Model):
+    typename = models.CharField(max_length=20)
+class Name(models.Model):
+    name = models.CharField(max_length=50)
+    author = models.CharField(max_length=50)
+    stars = models.CharField(max_length=5)
+```
+
+```python
+# 使用ORM框架api实现 与 views 结合
+from douban.models import *
+# 增
+Name.objects.create(name='活着', author='余华', starts='9.4')
+
+# 查
+Name.objects.get(id=2).name
+
+# 改
+Name.objects.filter(name='红楼梦').update(name='石头记')
+
+# 删 
+# 单条数据
+Name.objects.filter(name='红楼梦').delete()
+# 全部数据
+Name.objects.all().delete()
+
+# 其他常用查询
+Name.objects.all()[0].name
+n = Name.objects.all()
+n[0].name
+Name.objects.values_list('name')
+
+# 引入 Python 函数
+Name.objects.values_list('name').count()
+```
+
+```shell
+python manage.py makemigrations # 修改完 models 后，执行该命令创建
+python manage.py migrate # 创建后绑定
+```
+
+### 模板 Templates
+
+
+
 
 ## 模块和包
 
