@@ -51,6 +51,15 @@ TEMPLATES[0].APP_DIRS # 开启应用路径模板查找
 DATABASES # 🌟 数据库配置
 ```
 
+```python
+# 同级目录下配置 __init__.py
+# 使用 pymysql 链接数据库
+
+import pymysql
+
+pymysql.install_as_MySQLdb()
+```
+
 ### URL 调度器 [URLconf]
 
 工程目录下 urls.py 导入应用url 
@@ -130,6 +139,7 @@ Name.objects.values_list('name').count()
 ```shell
 python manage.py makemigrations # 修改完 models 后，执行该命令创建
 python manage.py migrate # 创建后绑定
+python manage.py inspectdb > models.py # SQL => ORM
 ```
 
 ### 模板 Templates
@@ -152,3 +162,13 @@ import ...
 from ... import ...
 from ... import ... as ...
 ```
+
+# 参考链接
+
+```python
+# env/lib/python3.7/site-packages/django/db/backends/mysql/operations.py
+    query = query.decode(errors='replace')
+AttributeError: 'str' object has no attribute 'decode'
+```
+
+- [解决 链接 DB 'str' no 'decode'](https://blog.csdn.net/qq_36274515/article/details/89043481)
