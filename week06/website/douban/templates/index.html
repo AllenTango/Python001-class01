@@ -1,0 +1,13 @@
+<div>电影名称: {{ name }} <br>
+  电影类型: {{ types }} <br>
+  上映时间: {{ show_time }}
+</div>
+<h2>短评👇</h2>
+{% for commit in commits %}
+<div>短评: {{ commit.short_content }} <br>
+  评分: {{ commit.short_star }} <br>
+  推荐度: {{ commit.short_title }} <br>
+  评论日期: {{ commit.short_date }} <br>
+</div>
+<hr/>
+{% endfor %}
