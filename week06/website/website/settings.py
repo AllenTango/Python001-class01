@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': os.path.join(BASE_DIR, 'short.sql'),
         'NAME': 'short',
         'USER': 'root',
         'PASSWORD': 'Tango0079410',
