@@ -28,7 +28,7 @@ class Zoo:
     def add_animal(self, animal):
         if animal not in self.animals:
             self.animals.append(animal)
-        self.__dict__[animal.__class__.__name__] = animal
+        self.__dict__[animal.__class__.__name__] = self.animals
 
 
 if __name__ == '__main__':
@@ -36,8 +36,10 @@ if __name__ == '__main__':
     z = Zoo('时间动物园')
     # 实例化一只猫，属性包括名字、类型、体型、性格
     cat1 = Cat('大花猫 1', '食肉', '小', '温顺')
+    cat2 = Cat('大花猫 2', '食肉', '小', '温顺')
     # 增加一只猫到动物园
     z.add_animal(cat1)
+    z.add_animal(cat2)
     # 动物园是否有猫这种动物
     have_cat = getattr(z, 'Cat')
-    print(have_cat.name)
+    print(bool(have_cat))
