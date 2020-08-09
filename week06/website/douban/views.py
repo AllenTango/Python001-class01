@@ -5,7 +5,6 @@ from .models import Shorts
 
 # Create your views here.
 
-
 def index(req: HttpRequest):
     movie = Shorts.objects.all()[0]
     ctx = {
