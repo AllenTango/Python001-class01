@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单主页</title>
+</head>
+<body>
+    <!-- 主页导航 -->
+    <ul class="nav">
+       {% if user.is_authenticated %}
+         <li>User: {{ user.get_username }}</li>
+         <li><a href="{% url 'password'%}?next={{request.path}}">修改密码</a></li>
+         <li><a href="{% url 'logout'%}?next={{request.path}}">登出</a></li>   
+       {% else %}
+         <li><a href="{% url 'login'%}?next={{request.path}}">登录</a></li>
+         <li><a href="{% url 'register'%}?next={{request.path}}">注册</a></li>   
+       {% endif %} 
+      </ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+</head>
+<body>
+    <!-- 注册表单 -->
+    {% block content %}
+    <form action="/register/" method="post">
+        {% csrf_token %}
+        <label for="username">用户名：</label>
+        <input type="text" name="username" id="username" placeholder="如小明"/><br>
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password" placeholder="密码必须大于八位字符" minlength="8" /><br>
+        <input type="submit" value="注册">
+    </form>
+    {% endblock %}
+</body>
+</html>
