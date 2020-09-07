@@ -171,5 +171,6 @@ from ... import ... as ...
 AttributeError: 'str' object has no attribute 'decode'
 ```
 
-- [解决 链接 DB 'str' no 'decode'](https://blog.csdn.net/qq_36274515/article/details/89043481)
+- [解决 链接 DB 'str' no 'decode' 1](https://blog.csdn.net/qq_36274515/article/details/89043481)
+- [解决 链接 DB 'str' no 'decode' 2](https://stackoverflow.com/questions/56820895/migrations-error-in-django-2-attributeerror-str-object-has-no-attribute-dec)
 - [MySQL 导出\导入数据 /usr/local/mysql/bin/mysqldump -u root -h 127.0.0.1 -pTango0079410 douban shorts > shorts.sql](https://blog.csdn.net/Klaus_S/article/details/89575205)
