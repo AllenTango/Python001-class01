@@ -15,15 +15,6 @@ class ZdmSpidersMySQLPipeline(object):
         self.user = user
         self.password = password
         self.db = db
-        self.connect = pymysql.connect(
-            host = self.host,
-            port = self.port,
-            db = self.db,
-            user = self.user,
-            password = self.password,
-            charset = 'utf8mb4'
-        )
-        self.cursor = self.connect.cursor()
     
     @classmethod
     def from_crawler(cls, crawler):
@@ -34,6 +25,17 @@ class ZdmSpidersMySQLPipeline(object):
             password = crawler.settings.get('MYSQL_PASSWORD'),
             db = crawler.settings.get('MYSQL_DB'),
         )
+    
+    def open_spider(self, spider):
+        self.connect = pymysql.connect(
+            host = self.host,
+            port = self.port,
+            db = self.db,
+            user = self.user,
+            password = self.password,
+            charset = 'utf8mb4'
+        )
+        self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
         try:
