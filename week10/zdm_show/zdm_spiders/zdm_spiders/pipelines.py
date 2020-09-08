@@ -6,20 +6,35 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import pymysql
 from datetime import datetime
-from .config import localhost, user, pwd, db
 
 
 class ZdmSpidersMySQLPipeline(object):
-    def __init__(self):
+    def __init__(self, host, port, db, user, password):
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.db = db
         self.connect = pymysql.connect(
-            host = localhost,
-            db = db,
-            user = user,
-            password = pwd,
+            host = self.host,
+            port = self.port,
+            db = self.db,
+            user = self.user,
+            password = self.password,
             charset = 'utf8mb4'
         )
         self.cursor = self.connect.cursor()
     
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            host = crawler.settings.get('MYSQL_HOST'),
+            port = crawler.settings.get('MYSQL_PORT'),
+            user = crawler.settings.get('MYSQL_USER'),
+            password = crawler.settings.get('MYSQL_PASSWORD'),
+            db = crawler.settings.get('MYSQL_DB'),
+        )
+
     def process_item(self, item, spider):
         try:
             create_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -27,7 +42,7 @@ class ZdmSpidersMySQLPipeline(object):
             self.connect.commit()
         except Exception as e:
             print(e)
-        
+
         return item
     
     def close_spider(self, spider):
